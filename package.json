@@ -1,0 +1,43 @@
+{
+  "name": "penguinlang",
+  "displayName": "PenguinLang for VS Code",
+  "description": "The PenguinLang Extension for Visual Studio Code.",
+  "publisher": "GoldenVadim",
+  "icon": "icon.png",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoldenVadim/penguinlang-extension-for-vscode"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "penguinlang.helloWorld",
+      "title": "Check that the PenguinLang extension is enabled"
+    }]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.76.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5",
+    "@vscode/test-electron": "^2.2.3"
+  }
+}
