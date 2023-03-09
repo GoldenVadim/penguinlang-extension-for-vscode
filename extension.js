@@ -1,38 +1,27 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+
+const { scheduler } = require('timers/promises');
 const vscode = require('vscode');
-
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('The PenguinLang extension has been launched.');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
+	console.log('The PenguinLang extension has been activated.');
+	vscode.window.setStatusBarMessage("🐧✅The PenguinLang extension has been activated.",3)
 	let disposable = vscode.commands.registerCommand('penguinlang.check', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('The PenguinLang extension works.');
+		vscode.window.showInformationMessage('🐧💬The PenguinLang extension works.')
 	});
-
 	context.subscriptions.push(disposable);
+	let disposable2 = vscode.commands.registerCommand('penguinlang.create',function () {
+		vscode.window.showInformationMessage('😅Sorry, but the programming language is still under development.')
+	})
+	context.subscriptions.push(disposable2);
 }
-
-// This method is called when your extension is deactivated
-function deactivate() {}
-function relaunch() {deactivate();activate()}
+function deactivate() {
+	vscode.window.setStatusBarMessage("🐧⚠The PenguinLang extension has been deactivated.",3)
+	vscode.window.showInformationMessage('🐧💬The PenguinLang extension has been deactivated.');
+}
 
 module.exports = {
 	activate,
-	deactivate,
-	relaunch
+	deactivate
 }
